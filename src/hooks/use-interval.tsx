@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 // Create C is generic is flexible for anything  type of dados
-export function useIntervall<C extends CallableFunction>(
+export function useInterval<C extends CallableFunction>(
   callback: C,
   delay: number | null,
 ): void {

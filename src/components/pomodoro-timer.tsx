@@ -1,4 +1,4 @@
-import { useIntervall } from '../hooks/use-interval';
+import { useInterval } from '../hooks/use-interval';
 import { useEffect, useState, useCallback } from 'react';
 
 import { Button } from './botton';
@@ -9,7 +9,8 @@ import { Timer } from './timer';
 import bellStart from '../sounds/bell-start.mp3';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import bellFinish from '../sounds/bell-finish.mp3';
-import { secondsTotime } from '../utils/second-to-time';
+import { secondsToMinutes } from '../utils/second-to-minutes';
+import { secondsToTime } from '../utils/second-to-time';
 
 const audioStartWorking = new Audio(bellStart);
 const audioStopWorking = new Audio(bellFinish);
@@ -106,10 +107,10 @@ export function PomodoroTimer(props: Props): JSX.Element {
   ]);
   //
 
-  useIntervall(
+  useInterval(
     () => {
       setMainTime(mainTime - 1);
-      if (working) setFullWorkingTime(fullWorkingTime);
+      if (working) setFullWorkingTime(fullWorkingTime + 1);
     },
     timeCounting ? 1000 : null,
   );
@@ -131,8 +132,8 @@ export function PomodoroTimer(props: Props): JSX.Element {
       </div>
       <div className="details">
         <p>Ciclos concluidos: {completedCycles}</p>
-        <p>Horas trabalhadas: {secondsTotime(fullWorkingTime)}</p>
-        <p>Pomodoros concluidos: {completedCycles}</p>
+        <p>Horas trabalhadas: {secondsToTime(fullWorkingTime)}</p>
+        <p>Pomodoros concluidos: {numberOfPormodoros}</p>
       </div>
     </div>
   );
