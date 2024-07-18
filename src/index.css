@@ -49,7 +49,7 @@ body{
   justify-content: space-evenly;
 }
 
-.pomodor button{
+.pomodoro button{
   background: #41e1ba;
   border: none;
   cursor: pointer;
