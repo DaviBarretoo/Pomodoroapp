@@ -8,7 +8,7 @@
 body{
   font-family: sans-serif;
   background: #41e1ba;
-  transition: background-color 300ms ease-in-out;
+   transition: background-color 300ms ease-in-out;/* transition background color */
   line-height: 1.5
 }
 
